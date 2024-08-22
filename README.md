@@ -1,4 +1,4 @@
-# Trabalho Final Programação de Software Aplicado
+# OPEN ECG
 Abra o terminal na pasta do projeto e digite o comando:  
 
 ```powershell
