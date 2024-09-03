@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   auth-service:
@@ -51,6 +51,22 @@ services:
       - dist:/usr/share/nginx/html
     depends_on:
       - frontend
+
+  image-upload:
+    build:
+      context: ./image-upload
+    container_name: image-upload-service
+    ports:
+      - "5001:5001"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=user
+      - DB_PASSWORD=userpassword
+      - DB_NAME=openECG
+    depends_on:
+      - db
+
 
 volumes:
   dist:
