@@ -25,8 +25,8 @@ class Image(db.Model):
 # Função para enviar a imagem ao GPT Assistant
 def send_to_gpt_assistant(image_data, image_filename):
     # Inicializando o cliente OpenAI
-    client = OpenAI(api_key=os.getenv("GPT_API_KEY", "sk-KaebnbaDOtZhj8aE1t0CO7ozQiITWCWwibxNDHOfV_T3BlbkFJ5xqKMW2-go6acx9ZK6tC8MktrWQap0KrIkBR3qH6QA"))
-    assistant_id = os.getenv("GPT_ASSISTANT_ID", "asst_Ue4igFcEmKz45YCFbyiJkzqd")
+    #client = OpenAI(api_key=os.getenv("GPT_API_KEY", "chave API aqui"))
+    #assistant_id = os.getenv("GPT_ASSISTANT_ID", "chave Assistant")
 
     # Criar o arquivo no servidor da OpenAI
     file = client.files.create(
