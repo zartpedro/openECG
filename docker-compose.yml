@@ -66,8 +66,24 @@ services:
       - DB_NAME=openECG
     depends_on:
       - db
-
-
+    volumes:
+      - ./image-upload/uploads:/app/uploads
+    
+  gpt-service:
+    build:
+      context: ./gpt-service
+    container_name: gpt-service
+    environment:
+      DATABASE_URI: mysql://user:userpassword@db:3306/openECG  # Conexão com o banco de dados MySQL
+      GPT_API_URL: https://sua-url-gpt-personalizada.com/endpoint  # Substitua pela URL real do serviço GPT
+      GPT_API_KEY: sk-sua-chave-de-api-personalizada  # Chave de API real do GPT
+    depends_on:
+      - db
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./image-upload/uploads:/app/uploads  # Compartilhamento do diretório de uploads com o serviço de upload
+    
 volumes:
   dist:
   db_data:
